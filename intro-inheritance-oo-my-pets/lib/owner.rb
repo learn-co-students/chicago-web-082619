@@ -1,7 +1,6 @@
 
 module Persistable
   module ClassMethods
-    ALL = []
 
     def self.all
       self::ALL
@@ -16,6 +15,8 @@ module Persistable
 end
 
 class Owner
+    ALL = []
+
     extend Persistable::ClassMethods
     include Persistable::InstanceMethods
 end
