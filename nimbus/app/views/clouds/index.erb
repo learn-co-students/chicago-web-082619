@@ -1,0 +1,7 @@
+<h1>OUR CLOUDS</h1>
+<h2>Viewing a total of <%= Cloud.total_cloud_count %> <%= Cloud.word_for_clouds %></h2>
+
+
+<% @clouds.each do |cloud| %>
+  <h3><%= cloud.name %></h3>
+<% end %>

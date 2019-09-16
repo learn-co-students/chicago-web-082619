@@ -1,0 +1,9 @@
+<h1>All Books (Index Action) - Greetings, human named <%= @name %></h1>
+
+<ul>
+  <% @books.each do |book| %>
+    <li>
+      <a href="/books/<%= book.id %>"><%= book.louder_title %></a>
+    </li>
+  <% end %>
+</ul>
