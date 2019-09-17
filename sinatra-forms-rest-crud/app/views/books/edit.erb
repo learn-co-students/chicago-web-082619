@@ -1,0 +1,9 @@
+<h1>Edit This Book!</h1>
+
+<form class="edit-book-form" action="/books/<%= @book.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="text" name="title" placeholder="Title" value="<%= @book.title %>">
+  <input type="text" name="author" placeholder="Author" value="<%= @book.author %>">
+  <input type="text" name="snippet" placeholder="Snippet" value="<%= @book.snippet %>">
+  <input type="submit" value="Update Book">
+</form>
