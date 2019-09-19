@@ -1,3 +1,7 @@
 <h1><%= @book.title %></h1>
-<h2>By <%= @author.name %></h2>
+<h2>By
+  <% @authors.each do |author| %>
+    <%= author.name %>
+  <% end%>
+</h2>
 <p><%=@book.snippet%></p>
