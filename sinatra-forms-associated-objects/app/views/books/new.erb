@@ -1,10 +1,10 @@
 <h1>Create a new book</h1>
 <form action="/books" method="POST">
   <label>Title:</label>
-  <input type="text" name="title">
+  <input type="text" name="book[title]">
   <label>Snippet:</label>
-  <input type="text" name="snippet">
-  <select name="author_id" id="">
+  <input type="text" name="book[snippet]">
+  <select name="author_ids[]" id="" multiple>
     <% @authors.each do |author| %>
       <option value="<%=author.id%>"><%=author.name%></option>
     <% end %>

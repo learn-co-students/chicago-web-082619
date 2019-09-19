@@ -12,12 +12,15 @@ class BooksController < ApplicationController
 
   get "/books/:id" do
     @book = Book.find(params["id"])
-    @author = @book.author
+    @authors = @book.authors
     erb :"books/show"
   end
 
   post "/books" do
-    @book = Book.new params
+    @book = Book.new params["book"]
+    params["author_ids"].each do |id|
+      @book.authors << Author.find(id)
+    end
     if @book.title.length < 5
       @authors = Author.all
       return erb :"books/new"

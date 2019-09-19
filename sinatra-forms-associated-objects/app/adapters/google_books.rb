@@ -14,7 +14,7 @@ module GoogleBooks
 
       books['items'].each do |item|
         book = ::Book.new
-        book.author = Author.find_or_create_by(name: author_raw)
+        book.authors << Author.find_or_create_by(name: author_raw)
         book.title = item['volumeInfo']['title']
         book.snippet = item['volumeInfo']['description']
 
