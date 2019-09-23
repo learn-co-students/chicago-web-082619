@@ -1,0 +1,7 @@
+<%= form_with model: @airport, method: "put" do |f| %>
+  <%= f.label "Name" %>
+  <%= f.text_field :name, value: @airport.name %>
+  <%= f.label "Location" %>
+  <%= f.text_field :location, value: @airport.location %>
+  <%= f.submit %>
+<% end %>

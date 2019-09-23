@@ -1,0 +1,6 @@
+<h1><%= @airport.name %></h1>
+<h2><%= @airport.location %></h2>
+
+<%= form_with model: @airport, method: "delete" do  |f| %>
+  <%= f.submit "Delete airport" %>
+<% end %>
