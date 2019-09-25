@@ -1,0 +1,8 @@
+<h1>What's Up Docs (The Docs What Know What's Up)</h1>
+
+<%= link_to "Schedule a Visit", new_visit_path %>
+
+<% @doctors.each do |doctor| %>
+  <p><%= link_to doctor.name, doctor_path(doctor.id) %></p>
+  <!-- <p><a href="/doctors/<%= doctor.id %>"><%= doctor.name %></a></p> -->
+<% end %>

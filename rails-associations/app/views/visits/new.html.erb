@@ -1,0 +1,23 @@
+<h1>Schedule a Visit</h1>
+
+<!-- <form class="visit-form" action="/visits" method="post">
+  <input type="text" name="visit[reason]" placeholder="Reason for visit">
+  <select name="visit[doctor_id]">
+    <% @doctors.each do |doctor| %>
+      <option value="<%= doctor.id %>"><%= doctor.name %></option>
+    <% end %>
+  </select>
+</form> -->
+
+<% if @errors %>
+  <h3>something(s) went wrong</h3>
+  <% @errors.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_with model: @visit do |f| %>
+  <%= f.text_field :reason, placeholder: "reason" %>
+  <%= f.collection_select(:doctor_id, @doctors, :id, :name) %>
+  <%= f.submit %>
+<% end %>
