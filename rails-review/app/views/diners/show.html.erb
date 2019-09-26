@@ -1,0 +1,17 @@
+<h1><%= @diner.name %></h1>
+
+<h2>All your orders:</h2>
+<% @diner.orders.each do |order| %>
+  <br>
+  <%= link_to order.meal.name, order %>
+<% end %>
+<br>
+Place a new order:
+<br>
+<%= form_with model: Order.new do |f| %>
+  <%= f.hidden_field :diner_id, value: @diner.id %>
+  <%= f.label "What do you crave?" %>
+  <%= f.collection_select :meal_id, Meal.all, :id, :name %>
+  <%= f.date_select "date" %>
+  <%= f.submit %>
+<% end %>
