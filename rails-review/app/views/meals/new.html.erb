@@ -1,0 +1,14 @@
+<h1>Post a new meal!</h1>
+<% if flash[:errors] %>
+  <p>Something went wrong!</p>
+  <% flash[:errors].each do |error| %>
+    <span><%= error %>!</span>
+  <% end %>
+<% end %>
+<%= form_with model: @meal do |f| %>
+  <%= f.label "Name" %>
+  <%= f.text_field :name %>
+  <%= f.label "Category" %>
+  <%= f.text_field :category %>
+  <%= f.submit %>
+<% end %>
