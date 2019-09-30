@@ -1,0 +1,6 @@
+<h1>Welcome to Escar2Go!</h1>
+<h2>Here are our eligible snails!</h2>
+<% @snails.each do |snail| %>
+  <br>
+  <%= link_to snail.name, snail_path(snail) %>
+<% end %>

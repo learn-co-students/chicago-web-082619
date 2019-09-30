@@ -1,0 +1,10 @@
+<h1>Order a meal</h1>
+
+<%= form_with model: @order do |f| %>
+  <%= f.label "Who is ordering?" %>
+  <%= f.collection_select :diner_id, Diner.all, :id, :name %>
+  <%= f.label "What do you crave?" %>
+  <%= f.collection_select :meal_id, Meal.all, :id, :name %>
+  <%= f.date_select "date" %>
+  <%= f.submit %>
+<% end %>
