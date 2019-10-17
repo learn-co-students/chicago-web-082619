@@ -1,0 +1,1430 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateTrainers (20191017161828)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "trainers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20191017161828_create_trainers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191017161828"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreatePokemons (20191017161848)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "pokemons" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "species" varchar, "nickname" varchar, "trainer_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_cb73098d36"
+FOREIGN KEY ("trainer_id")
+  REFERENCES "trainers" ("id")
+)[0m
+  ↳ db/migrate/20191017161848_create_pokemons.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_pokemons_on_trainer_id" ON "pokemons" ("trainer_id")[0m
+  ↳ db/migrate/20191017161848_create_pokemons.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191017161848"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-10-17 16:20:35.840143"], ["updated_at", "2019-10-17 16:20:35.840143"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mTrainer Destroy (0.2ms)[0m  [1m[31mDELETE FROM "trainers"[0m
+  ↳ db/seeds.rb:12
+  [1m[36mPokemon Destroy (0.1ms)[0m  [1m[31mDELETE FROM "pokemons"[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[36mTrainer Create (0.4ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Natalie"], ["created_at", "2019-10-17 16:20:43.436676"], ["updated_at", "2019-10-17 16:20:43.436676"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[36mTrainer Create (0.4ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Prince"], ["created_at", "2019-10-17 16:20:43.440252"], ["updated_at", "2019-10-17 16:20:43.440252"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[36mTrainer Create (0.9ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Dick"], ["created_at", "2019-10-17 16:20:43.443213"], ["updated_at", "2019-10-17 16:20:43.443213"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[36mTrainer Create (0.3ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rachel"], ["created_at", "2019-10-17 16:20:43.446306"], ["updated_at", "2019-10-17 16:20:43.446306"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[36mTrainer Create (0.4ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Garry"], ["created_at", "2019-10-17 16:20:43.451861"], ["updated_at", "2019-10-17 16:20:43.451861"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[36mTrainer Create (0.4ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Jason"], ["created_at", "2019-10-17 16:20:43.456204"], ["updated_at", "2019-10-17 16:20:43.456204"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[36mTrainer Create (0.4ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Matt"], ["created_at", "2019-10-17 16:20:43.465161"], ["updated_at", "2019-10-17 16:20:43.465161"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[36mTrainer Create (0.7ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Niky"], ["created_at", "2019-10-17 16:20:43.469504"], ["updated_at", "2019-10-17 16:20:43.469504"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[36mTrainer Create (0.5ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ashley"], ["created_at", "2019-10-17 16:20:43.473058"], ["updated_at", "2019-10-17 16:20:43.473058"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.5ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Aerodactyl"], ["nickname", "Nena"], ["trainer_id", 1], ["created_at", "2019-10-17 16:20:44.656707"], ["updated_at", "2019-10-17 16:20:44.656707"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.5ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.7ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Lickitung"], ["nickname", "Shannon"], ["trainer_id", 1], ["created_at", "2019-10-17 16:20:44.663646"], ["updated_at", "2019-10-17 16:20:44.663646"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.5ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Lickitung"], ["nickname", "Guillermina"], ["trainer_id", 1], ["created_at", "2019-10-17 16:20:44.668674"], ["updated_at", "2019-10-17 16:20:44.668674"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Koffing"], ["nickname", "Asuncion"], ["trainer_id", 1], ["created_at", "2019-10-17 16:20:44.672211"], ["updated_at", "2019-10-17 16:20:44.672211"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.5ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Lickitung"], ["nickname", "Barton"], ["trainer_id", 1], ["created_at", "2019-10-17 16:20:44.676945"], ["updated_at", "2019-10-17 16:20:44.676945"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Charmander"], ["nickname", "Steven"], ["trainer_id", 1], ["created_at", "2019-10-17 16:20:44.680528"], ["updated_at", "2019-10-17 16:20:44.680528"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Diglett"], ["nickname", "Enoch"], ["trainer_id", 2], ["created_at", "2019-10-17 16:20:44.683670"], ["updated_at", "2019-10-17 16:20:44.683670"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Clefable"], ["nickname", "Elva"], ["trainer_id", 2], ["created_at", "2019-10-17 16:20:44.687470"], ["updated_at", "2019-10-17 16:20:44.687470"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Lapras"], ["nickname", "Lore"], ["trainer_id", 2], ["created_at", "2019-10-17 16:20:44.690238"], ["updated_at", "2019-10-17 16:20:44.690238"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Farfetch'd"], ["nickname", "Leif"], ["trainer_id", 3], ["created_at", "2019-10-17 16:20:44.692744"], ["updated_at", "2019-10-17 16:20:44.692744"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Golem"], ["nickname", "Samual"], ["trainer_id", 3], ["created_at", "2019-10-17 16:20:44.695269"], ["updated_at", "2019-10-17 16:20:44.695269"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Muk"], ["nickname", "Cristal"], ["trainer_id", 3], ["created_at", "2019-10-17 16:20:44.707455"], ["updated_at", "2019-10-17 16:20:44.707455"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Gengar"], ["nickname", "Gerri"], ["trainer_id", 3], ["created_at", "2019-10-17 16:20:44.714498"], ["updated_at", "2019-10-17 16:20:44.714498"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Graveler"], ["nickname", "Adolfo"], ["trainer_id", 3], ["created_at", "2019-10-17 16:20:44.721155"], ["updated_at", "2019-10-17 16:20:44.721155"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.6ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (1.0ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Charmeleon"], ["nickname", "Loralee"], ["trainer_id", 4], ["created_at", "2019-10-17 16:20:44.728988"], ["updated_at", "2019-10-17 16:20:44.728988"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Horsea"], ["nickname", "Junior"], ["trainer_id", 4], ["created_at", "2019-10-17 16:20:44.736369"], ["updated_at", "2019-10-17 16:20:44.736369"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.8ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.9ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Gyarados"], ["nickname", "Genevieve"], ["trainer_id", 4], ["created_at", "2019-10-17 16:20:44.743128"], ["updated_at", "2019-10-17 16:20:44.743128"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.5ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Squirtle"], ["nickname", "Cristobal"], ["trainer_id", 4], ["created_at", "2019-10-17 16:20:44.749379"], ["updated_at", "2019-10-17 16:20:44.749379"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Nidoran"], ["nickname", "Burl"], ["trainer_id", 5], ["created_at", "2019-10-17 16:20:44.754195"], ["updated_at", "2019-10-17 16:20:44.754195"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Rhydon"], ["nickname", "Trina"], ["trainer_id", 5], ["created_at", "2019-10-17 16:20:44.759663"], ["updated_at", "2019-10-17 16:20:44.759663"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Weedle"], ["nickname", "Daryl"], ["trainer_id", 5], ["created_at", "2019-10-17 16:20:44.764554"], ["updated_at", "2019-10-17 16:20:44.764554"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.5ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Nidorina"], ["nickname", "Ronnie"], ["trainer_id", 5], ["created_at", "2019-10-17 16:20:44.770228"], ["updated_at", "2019-10-17 16:20:44.770228"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Weepinbell"], ["nickname", "Richelle"], ["trainer_id", 5], ["created_at", "2019-10-17 16:20:44.775641"], ["updated_at", "2019-10-17 16:20:44.775641"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Kadabra"], ["nickname", "Elva"], ["trainer_id", 6], ["created_at", "2019-10-17 16:20:44.779767"], ["updated_at", "2019-10-17 16:20:44.779767"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Koffing"], ["nickname", "Sherly"], ["trainer_id", 6], ["created_at", "2019-10-17 16:20:44.784377"], ["updated_at", "2019-10-17 16:20:44.784377"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.3ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Gyarados"], ["nickname", "Lawrence"], ["trainer_id", 7], ["created_at", "2019-10-17 16:20:44.791429"], ["updated_at", "2019-10-17 16:20:44.791429"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Moltres"], ["nickname", "Miguel"], ["trainer_id", 7], ["created_at", "2019-10-17 16:20:44.795024"], ["updated_at", "2019-10-17 16:20:44.795024"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Gloom"], ["nickname", "Porfirio"], ["trainer_id", 7], ["created_at", "2019-10-17 16:20:44.797618"], ["updated_at", "2019-10-17 16:20:44.797618"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Ditto"], ["nickname", "Lashaunda"], ["trainer_id", 7], ["created_at", "2019-10-17 16:20:44.802741"], ["updated_at", "2019-10-17 16:20:44.802741"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.6ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Nidoking"], ["nickname", "Gwyneth"], ["trainer_id", 7], ["created_at", "2019-10-17 16:20:44.809238"], ["updated_at", "2019-10-17 16:20:44.809238"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Pidgeot"], ["nickname", "Larisa"], ["trainer_id", 7], ["created_at", "2019-10-17 16:20:44.814446"], ["updated_at", "2019-10-17 16:20:44.814446"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Raichu"], ["nickname", "Ricardo"], ["trainer_id", 8], ["created_at", "2019-10-17 16:20:44.819585"], ["updated_at", "2019-10-17 16:20:44.819585"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Gengar"], ["nickname", "Mohammad"], ["trainer_id", 9], ["created_at", "2019-10-17 16:20:44.824941"], ["updated_at", "2019-10-17 16:20:44.824941"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:39
+  [1m[36mTrainer Load (0.7ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/trainers" for ::1 at 2019-10-17 11:28:04 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dgreene2/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for TrainersController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/trainers" for ::1 at 2019-10-17 11:29:21 -0500
+Processing by TrainersController#index as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/trainers" for ::1 at 2019-10-17 11:29:39 -0500
+Processing by TrainersController#index as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trainers" for ::1 at 2019-10-17 11:31:47 -0500
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.6ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4
+Completed 200 OK in 15ms (Views: 8.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/trainers" for ::1 at 2019-10-17 11:32:33 -0500
+Processing by TrainersController#index as */*
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trainers" for ::1 at 2019-10-17 11:33:05 -0500
+Processing by TrainersController#index as */*
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trainers" for ::1 at 2019-10-17 11:33:54 -0500
+Processing by TrainersController#index as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/trainers" for ::1 at 2019-10-17 11:34:19 -0500
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.5ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/trainers" for ::1 at 2019-10-17 11:34:54 -0500
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/trainers" for ::1 at 2019-10-17 11:36:01 -0500
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.5ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:3
+Completed 200 OK in 10ms (Views: 5.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 11:36:47 -0500
+Processing by PokemonsController#index as */*
+Started GET "/trainers" for ::1 at 2019-10-17 11:36:47 -0500
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:3
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mPokemon Load (1.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 35ms (Views: 22.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 11:43:35 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.6ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 11:45:41 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 11:47:26 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 10ms (Views: 9.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 11:50:58 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 11:51:07 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 11:52:27 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.6ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 12ms (Views: 11.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 11:56:03 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 11:56:29 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 11:59:32 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 12:00:36 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 12:00:55 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 12:01:10 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:09:59 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.5ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 14ms (Views: 8.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:10:28 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:10:47 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:11:30 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.6ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:18:24 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.5ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:18:59 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:21:07 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:23:34 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.4ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:24:17 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.5ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:24:40 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:24:50 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:25:07 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.4ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:25:24 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 9ms (Views: 8.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:26:18 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:27:10 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:28:46 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:29:10 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.6ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:29:20 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:30:32 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:30:59 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:31:51 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:32:18 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:32:34 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:35:03 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:35:32 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.4ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:35:51 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:37:37 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:37:55 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:43:50 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.6ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/pokemons/1/update" for ::1 at 2019-10-17 13:43:59 -0500
+  
+ActionController::RoutingError (No route matches [PATCH] "/pokemons/1/update"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+[object Object]
+Started GET "/pokemons" for ::1 at 2019-10-17 13:46:12 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/pokemons/2" for ::1 at 2019-10-17 13:46:14 -0500
+Error occurred while parsing request parameters.
+Contents:
+
+[object Object]
+  
+ActionDispatch::Http::Parameters::ParseError (416: unexpected token at 'object Object]'):
+  
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch'
+rack (2.0.7) lib/rack/request.rb:59:in `fetch_header'
+actionpack (5.2.3) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.3) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.3) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.3) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.3) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/pokemons" for ::1 at 2019-10-17 13:47:35 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.4ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/pokemons/2" for ::1 at 2019-10-17 13:47:37 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"2", "trainer_id"=>"1", "species"=>"Lickitung", "nickname"=>"Shannon!"}, "id"=>"2"}
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.5ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.4ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Shannon!"], ["updated_at", "2019-10-17 18:47:37.429956"], ["id", 2]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 31ms (Views: 0.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:47:46 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/pokemons/2" for ::1 at 2019-10-17 13:47:48 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"2", "trainer_id"=>"1", "species"=>"Lickitung", "nickname"=>"Shannon!!"}, "id"=>"2"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.3ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Shannon!!"], ["updated_at", "2019-10-17 18:47:48.243548"], ["id", 2]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:47:49 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/pokemons/2" for ::1 at 2019-10-17 13:47:51 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"2", "trainer_id"=>"1", "species"=>"Lickitung", "nickname"=>"Shannon!!!"}, "id"=>"2"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.3ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Shannon!!!"], ["updated_at", "2019-10-17 18:47:51.339240"], ["id", 2]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:47:52 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:51:28 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/pokemons/1" for ::1 at 2019-10-17 13:51:30 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"1", "trainer_id"=>"1", "species"=>"Aerodactyl", "nickname"=>"Nena!"}, "id"=>"1"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.4ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Nena!"], ["updated_at", "2019-10-17 18:51:30.114180"], ["id", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:51:41 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/pokemons/2" for ::1 at 2019-10-17 13:51:43 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"2", "trainer_id"=>"1", "species"=>"Lickitung", "nickname"=>"Shannon!!!!"}, "id"=>"2"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.6ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Shannon!!!!"], ["updated_at", "2019-10-17 18:51:43.163787"], ["id", 2]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:53:20 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.6ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/pokemons/1" for ::1 at 2019-10-17 13:53:21 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"1", "trainer_id"=>"1", "species"=>"Aerodactyl", "nickname"=>"Nena!!"}, "id"=>"1"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.3ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Nena!!"], ["updated_at", "2019-10-17 18:53:21.962206"], ["id", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 13ms (Views: 0.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:56:41 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.7ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/pokemons/2" for ::1 at 2019-10-17 13:56:43 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"2", "trainer_id"=>"1", "species"=>"Lickitung", "nickname"=>"Shannon!!!!!"}, "id"=>"2"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.3ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Shannon!!!!!"], ["updated_at", "2019-10-17 18:56:43.481525"], ["id", 2]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 2.2ms)
+
+
+Started PATCH "/pokemons/1" for ::1 at 2019-10-17 13:56:48 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"1", "trainer_id"=>"1", "species"=>"Aerodactyl", "nickname"=>"Nena!!!"}, "id"=>"1"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.4ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Nena!!!"], ["updated_at", "2019-10-17 18:56:48.221668"], ["id", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 2.2ms)
+
+
+Started PATCH "/pokemons/3" for ::1 at 2019-10-17 13:56:49 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"3", "trainer_id"=>"1", "species"=>"Lickitung", "nickname"=>"Guillermina!"}, "id"=>"3"}
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.5ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Guillermina!"], ["updated_at", "2019-10-17 18:56:49.628375"], ["id", 3]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 1.7ms)
+
+
+Started PATCH "/pokemons/1" for ::1 at 2019-10-17 13:56:50 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"1", "trainer_id"=>"1", "species"=>"Aerodactyl", "nickname"=>"Nena!!!"}, "id"=>"1"}
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:56:55 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.4ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/pokemons/1" for ::1 at 2019-10-17 13:56:59 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"1", "trainer_id"=>"1", "species"=>"Aerodactyl", "nickname"=>"Nena!!!!"}, "id"=>"1"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.3ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.4ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Nena!!!!"], ["updated_at", "2019-10-17 18:56:59.287351"], ["id", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.7ms)
+
+
+Started PATCH "/pokemons/3" for ::1 at 2019-10-17 13:57:01 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"3", "trainer_id"=>"1", "species"=>"Lickitung", "nickname"=>"Guillermina!!"}, "id"=>"3"}
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.4ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Guillermina!!"], ["updated_at", "2019-10-17 18:57:01.072175"], ["id", 3]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 13:57:02 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 14:02:17 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.6ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/pokemons/1" for ::1 at 2019-10-17 14:02:19 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"1", "trainer_id"=>"1", "species"=>"Aerodactyl", "nickname"=>"Nena!!!!!"}, "id"=>"1"}
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.7ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (1.2ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Nena!!!!!"], ["updated_at", "2019-10-17 19:02:19.505228"], ["id", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 14:02:21 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 14:02:59 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.4ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/pokemons/1" for ::1 at 2019-10-17 14:03:00 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"1", "trainer_id"=>"1", "species"=>"Aerodactyl", "nickname"=>"Nena!!!!!!"}, "id"=>"1"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.4ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Nena!!!!!!"], ["updated_at", "2019-10-17 19:03:00.770423"], ["id", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/pokemons/2" for ::1 at 2019-10-17 14:03:02 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"2", "trainer_id"=>"1", "species"=>"Lickitung", "nickname"=>"Shannon!!!!!!"}, "id"=>"2"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.4ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Shannon!!!!!!"], ["updated_at", "2019-10-17 19:03:02.310083"], ["id", 2]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 14:03:02 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 14:03:29 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/pokemons/2" for ::1 at 2019-10-17 14:03:31 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"2", "trainer_id"=>"1", "species"=>"Lickitung", "nickname"=>"Shannon!!!!!!!"}, "id"=>"2"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.4ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Shannon!!!!!!!"], ["updated_at", "2019-10-17 19:03:31.285134"], ["id", 2]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 14:03:59 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/pokemons/2" for ::1 at 2019-10-17 14:04:00 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"2", "trainer_id"=>"1", "species"=>"Lickitung", "nickname"=>"Shannon!!!!!!!!"}, "id"=>"2"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (1.0ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Shannon!!!!!!!!"], ["updated_at", "2019-10-17 19:04:00.822033"], ["id", 2]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 14:04:18 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.5ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/pokemons/2" for ::1 at 2019-10-17 14:04:20 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"2", "trainer_id"=>"1", "species"=>"Lickitung", "nickname"=>"Shannon!!!!!!!!!"}, "id"=>"2"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.3ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Shannon!!!!!!!!!"], ["updated_at", "2019-10-17 19:04:20.140687"], ["id", 2]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 14:04:26 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.9ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/pokemons/5" for ::1 at 2019-10-17 14:04:28 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"5", "trainer_id"=>"1", "species"=>"Lickitung", "nickname"=>"Barton!"}, "id"=>"5"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.3ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Barton!"], ["updated_at", "2019-10-17 19:04:28.010345"], ["id", 5]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 14:05:01 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.6ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/pokemons/4" for ::1 at 2019-10-17 14:05:03 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"4", "trainer_id"=>"1", "species"=>"Koffing", "nickname"=>"Asuncion!"}, "id"=>"4"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.5ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Asuncion!"], ["updated_at", "2019-10-17 19:05:03.155940"], ["id", 4]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 14:06:16 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/pokemons/5" for ::1 at 2019-10-17 14:06:22 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"5", "trainer_id"=>"1", "species"=>"Lickitung", "nickname"=>"Barton!!"}, "id"=>"5"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (1.1ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Barton!!"], ["updated_at", "2019-10-17 19:06:22.298172"], ["id", 5]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/pokemons" for ::1 at 2019-10-17 14:09:36 -0500
+Processing by PokemonsController#index as */*
+  [1m[36mPokemon Load (0.6ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/pokemons_controller.rb:3
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/pokemons/5" for ::1 at 2019-10-17 14:09:38 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"5", "trainer_id"=>"1", "species"=>"Lickitung", "nickname"=>"Barton!!!"}, "id"=>"5"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.4ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Barton!!!"], ["updated_at", "2019-10-17 19:09:38.419859"], ["id", 5]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 20ms (Views: 0.4ms | ActiveRecord: 1.5ms)
+
+
+Started PATCH "/pokemons/5" for ::1 at 2019-10-17 14:09:40 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"5", "trainer_id"=>"1", "species"=>"Lickitung", "nickname"=>"Barton!!!!"}, "id"=>"5"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.7ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Barton!!!!"], ["updated_at", "2019-10-17 19:09:40.512724"], ["id", 5]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 26ms (Views: 0.4ms | ActiveRecord: 1.9ms)
+
+
+Started PATCH "/pokemons/6" for ::1 at 2019-10-17 14:09:57 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"6", "trainer_id"=>"1", "species"=>"Charmander", "nickname"=>"Steven!"}, "id"=>"6"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.4ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Steven!"], ["updated_at", "2019-10-17 19:09:57.757667"], ["id", 6]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 1.5ms)
+
+
+Started PATCH "/pokemons/6" for ::1 at 2019-10-17 14:10:04 -0500
+Processing by PokemonsController#update as */*
+  Parameters: {"pokemon"=>{"id"=>"6", "trainer_id"=>"1", "species"=>"Charmander", "nickname"=>"Steven!!"}, "id"=>"6"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT  "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:9
+Unpermitted parameter: :id
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT  "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[36mPokemon Update (0.3ms)[0m  [1m[33mUPDATE "pokemons" SET "nickname" = ?, "updated_at" = ? WHERE "pokemons"."id" = ?[0m  [["nickname", "Steven!!"], ["updated_at", "2019-10-17 19:10:04.395007"], ["id", 6]]
+  ↳ app/controllers/pokemons_controller.rb:10
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:10
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
