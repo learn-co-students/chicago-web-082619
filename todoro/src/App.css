@@ -1,0 +1,34 @@
+body {
+  background: #A8C7E6
+}
+
+.App-logo {
+  padding-top: 5px;
+  height: 90px;
+  position: relative;
+  float: left;
+}
+
+.App-name {
+  position: relative;
+}
+
+.App-name h1 {
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.App-name p {
+  margin: 1vmin auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 20vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding-right: 10px;
+}
