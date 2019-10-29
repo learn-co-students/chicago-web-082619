@@ -3,10 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import apiKey from './apiKey'
-
-const baseApiUrl = `https://pixabay.com/api/?key=${apiKey}&q=rose`
-console.log(baseApiUrl)
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
