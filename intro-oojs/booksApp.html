@@ -1,0 +1,35 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Favorite Books</title>
+  <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+  <link href="booksApp.css" rel="stylesheet"/>
+  <script type="text/javascript" src="book.js"></script>
+  <script type="text/javascript" src="booksApp.js"></script>
+</head>
+<body>
+  <h1>Book List</h1>
+
+  <form action='' id="new-book-form">
+    Book Title:<br>
+    <input type="text" name="title" value="">
+    <br>
+    Author:<br>
+    <input type="text" name="author" value="">
+    <br><br>
+    Book Cover URL:<br>
+    <input type="text" name="image" value="">
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <div id='book-list'>
+    <div class = 'card'>
+      <img src = 'https://images-na.ssl-images-amazon.com/images/I/31AYTZWPCPL._SX309_BO1,204,203,200_.jpg'/>
+      <h3>Soul Kiss</h3>
+      <p>Shay Youngblood</p>
+    </div>
+  </div>
+</body>
+</html>
